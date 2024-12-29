@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
-PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 处理日志问题 -->
 	<settings>
@@ -10,15 +9,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	<typeAliases>
 		<!-- 别外优化,优化mapping内的实体类映射；如
-		<select id="login" parameterType ="com.huiyou.model.Admin" resultType = "com.huiyou.model.Admin">
+		<select id="login" parameterType ="com.rita.model.Admin" resultType = "com.rita.model.Admin">
 		可以写为
 		<select id="login" parameterType ="Admin" resultType = "Admin">
 		没有必须写第一种格式
 		-->
-		<package name="com.huiyou.model" />
+		<package name="com.rita.model" />
 	</typeAliases>
 	<!-- 分页插件 -->
 	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"/>
 	</plugins>
 </configuration>

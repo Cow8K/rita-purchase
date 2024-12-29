@@ -100,7 +100,7 @@
         <!-- 侧边菜单 -->
         <div class="layui-side layui-side-menu">
             <div class="layui-side-scroll">
-                <div class="layui-logo" lay-href="src/views/students.jsp">
+                <div class="layui-logo" lay-href="src/views/purchaseOrder.jsp">
                     <span>公主的采购管理系统</span>
                 </div>
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all"
@@ -112,7 +112,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="layui-this">
-                                <a lay-href="${pageContext.request.contextPath }/src/views/students.jsp">采购单管理</a>
+                                <a lay-href="${pageContext.request.contextPath }/src/views/purchaseOrder.jsp">采购单管理</a>
                             </dd>
                             <dd data-name="console">
                                 <a lay-href="${pageContext.request.contextPath }/src/views/classes.jsp">班级管理</a>
@@ -163,7 +163,7 @@
         <!-- 主体内容 -->
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
-                <iframe src="${pageContext.request.contextPath }/src/views/students.jsp" frameborder="0" class="layadmin-iframe"></iframe>
+                <iframe src="${pageContext.request.contextPath }/src/views/purchaseOrder.jsp" frameborder="0" class="layadmin-iframe"></iframe>
             </div>
         </div>
 
