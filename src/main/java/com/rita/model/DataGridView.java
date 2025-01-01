@@ -13,5 +13,5 @@ public class DataGridView {
 	private Integer	code = 0;
 	private String msg = "";
 	private Integer count;
-	private List<Object> data;
+	private List<?> data;
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rita.mapper.PurchaseOrderMapper">
+
+	<select id="queryPurchaseOrders" parameterType="PurchaseOrderQuery" resultType="PurchaseOrder">
+		select id,
+			   order_number,
+			   real_paid,
+			   supplier,
+			   address,
+			   remark,
+			   create_time,
+			   account
+		  from t_purchase_order po
+		<where>
+			<if test="query.id != null">
+				and po.id = #{query.id}
+			</if>
+
+			<if test="query.orderNumber != null">
+				and po.orderNumber = #{query.orderNumber}
+			</if>
+
+			<if test="query.realPaid != null">
+				and po.realPaid = #{query.realPaid}
+			</if>
+
+			<if test="query.supplier != null">
+				and po.supplier = #{query.supplier}
+			</if>
+
+			<if test="query.account != null">
+				and po.account = #{query.account}
+			</if>
+		</where>
+		 limit 10
+	</select>
+</mapper>

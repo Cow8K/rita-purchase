@@ -58,7 +58,7 @@
 			let table = layui.table, $ = layui.jquery, layer = layui.layer, form = layui.form;
 			table.render({
 				elem: '#studentsList',
-				url: '${pageContext.request.contextPath}/students/selStudentsMap.action',
+				url: '${pageContext.request.contextPath}/purchase/order/search.action',
 				method: 'post',
 				page: true,
 				toolbar: '#topToolBar',
@@ -72,26 +72,32 @@
 							fixed: 'left',
 						},
 						{
-							field: 'purchaseOrderNumber',
+							field: 'orderNumber',
 							title: '采购单编号',
 							sort: true,
 							align: 'center',
+							templet: function (data) {
+								return data ? `<div>\${data.orderNumber}</div>` : ``;
+							},
 						},
 						{
-							field: 'supplierName',
+							field: 'supplier',
 							title: '供应商名称',
 							sort: true,
 							align: 'center',
+							templet: function (data) {
+								return data ? `<div>\${data.supplier}</div>` : ``;
+							},
 						},
 						{
 							field: 'productImg',
 							title: '产品图片',
 							align: 'center',
 							templet: function (data) {
-								if (!data.img) { // 用户未上传头像时
-									return '<img alt="未上传头像" src="">';
-								}
-								return '<img src="${pageContext.request.contextPath}/' + data.img + '">';
+								if (!data.img)
+									return '<img alt="未上传产品图片" src="">';
+								else
+									return `<img src="${pageContext.request.contextPath}/\${data.img}" alt="产品图片"/>`
 							},
 						},
 						{
@@ -107,11 +113,11 @@
 						},
 						{
 							field: 'realPaid',
-							title: '实际支付',
+							title: '实际支付（￥）',
 							align: 'center',
 							sort: true,
 							templet: function (data) {
-								return (data.pName || '') + (data.cName || '') + (data.aName || '') + (data.detailed || '');
+								return data ? `<div>\${data.realPaid}</div>` : ``;
 							}
 						},
 						{
@@ -149,7 +155,7 @@
 			    		location.reload()
 			    	} else {
 				    	table.reload('studentsList', {
-							url : '${pageContext.request.contextPath}/students/selStudentsMap.action',
+							url : '${pageContext.request.contextPath}/purchase/order/search.action',
 							where : {
 								classId: className || 0,
 								id: stuId || 0,

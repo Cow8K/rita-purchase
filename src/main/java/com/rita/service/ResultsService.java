@@ -7,16 +7,4 @@ import com.rita.model.Results;
 
 public interface ResultsService {
 
-	List<Object> selResults(Results results);
-
-	void delResults(Results results);
-
-	void updateResults(Results results);
-
-	void addResults(Results results);
-
-	List<Object> selResultsMap(Map<String, Object> map);
-
-	Integer count(Results results);
-
 }
